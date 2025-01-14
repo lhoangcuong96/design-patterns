@@ -18,12 +18,7 @@ class SumStorage {
   store(value) {}
 }
 
-class Main {
-  constructor() {
-    const sumObj = new Sum();
-    const result = sumObj.sum(1, 1);
-    console.log(result);
-  }
-}
-
-const main = new Main();
+// áp dụng Singleton cho SumStorage
+const sumObj = new Sum();
+const result = sumObj.sum(1, 1);
+console.log(result);
