@@ -3,7 +3,7 @@
 
 ## Bài toán
 
-- Factory method sẽ tập trung vào việc tạo ra đối tượng, Abstract Factory sẽ tập trung vào việc tạo ra các nhóm đối tượng có liên quan hay phụ thuộc
+- [Factory method](https://github.com/lhoangcuong96/design-patterns/blob/master/3_Factory_Method/doc.md) sẽ tập trung vào việc tạo ra đối tượng, Abstract Factory sẽ tập trung vào việc tạo ra các nhóm đối tượng có liên quan hay phụ thuộc
 
 ## Thành phần
 - Abstract Factory bao gồm:
@@ -18,7 +18,7 @@
   - Tạo ra 2 đối tượng là connection và repository của 2db
     - Abstract factory:  => AbstractDatabaseFactory
     - Nhóm đối tượng(Connection, repository) nằm trong 2 DB là Mongodb và Postgres
-      -  => Concrete factory: MongoDbFactory, Postgres Factory
+      -  => Concrete factory: MongoDbFactory, PostgresFactory
     - Abstract product: interface Connection, interface Repository
     - Concrete product: Connection, Repository
 ```

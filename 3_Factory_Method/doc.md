@@ -3,7 +3,7 @@
 
 ## Bài toán
 
-- Cũng giống Factory(Simple Factory)
+- Cũng giống Factory([Simple Factory](https://github.com/lhoangcuong96/design-patterns/blob/master/2_Factory/doc.md))
   - Khởi tạo các object có quá trình phức tạp, lặp lại
   - Ần đi chi tiết khởi tạo giúp không làm ảnh hưởng đến những nơi sử dụng khi sửa đổi và update
 - Khác với Factory(Simple Factory) sẽ chỉ tạo ra 1 factory là dựa vào điều kiện để sử dụng các class creator để tạo ra các object khác nhau, Factory Method sẽ tạo ra các factory khác nhau mỗi factory sẽ tương ứng 1 loại Object được tạo ra dựa trên 1 class
