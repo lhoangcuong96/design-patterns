@@ -22,5 +22,8 @@
         - Sport car thì cần thông tin về "Max speed"
     - Mỗi đối tượng(biến thể) cần các thông tin khác nhau và như vậy nếu sử dụng chung 1 constructor khởi tạo sẽ cực kì phức tạp và khó đọc và bảo trì, đồng thơi một số properties không cần thiết cũng phải truyền vào null, cực kì không cần thiết và thứ tự của nó cũng là 1 điều khá phức tạp
         - Sử dụng Builder có thể giải quyết bài toán đó
+- [Prototype](https://github.com/lhoangcuong96/design-patterns/blob/master/6_Prototype/doc.md)
+    - Prototype sử dụng để tạo ra 1 đối tượng từ 1 đối tượng có sẵn nhưng tránh được việc phải tạo lại từ đầu đặc biệt khi việc khởi tạo tốn nhiều tài nguyên và phức tạp
+
 
     
