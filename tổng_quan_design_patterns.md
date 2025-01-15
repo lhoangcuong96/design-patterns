@@ -1,4 +1,4 @@
-# Tổng quan design pattern
+# Tổng quan design patterns
 
 ## Nhóm khởi tạo
 
