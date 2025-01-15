@@ -1,26 +1,19 @@
-# Abstract factory
+# Builder
 
 
 ## Bài toán
 
-- [Factory method](https://github.com/lhoangcuong96/design-patterns/blob/master/3_Factory_Method/doc.md) sẽ tập trung vào việc tạo ra đối tượng, Abstract Factory sẽ tập trung vào việc tạo ra các nhóm đối tượng có liên quan hay phụ thuộc
+- Ví dụ Car có nhiều loại car và cấu trúc constructor khác nhau. Các loại yêu cầu khác nhau
 
 ## Thành phần
-- Abstract Factory bao gồm:
-  - Abstract factory: khai báo 1 tập hợp các methods để tạo ra các đối tượng
-  - Concrete factory: Triễn khai phương thức khởi tạo cho các nhóm đối tượng
-  - Abstract product: Khai báo 1 interface cho 1 loại đối tượng
-  - Concrete product: triễn khai cho abstract product
+- Builder bao gồm:
+  - Product: Đối tượng cần xây dựng, điển hình là các đối tượng phức tạp gồm nhiều phần
+  - Builder: Là lớp cơ sở (interface, asbstract) để định nghĩa những steps để tạo ra đối tượng. Lớp này thường cung cấp các phương thức để cài đặt cho từng phần
+  - Concrete Builder: Lớp implement cho builder để xây dựng từng phần của đối tượng
+  - Director: Điều hướng quá trình xây dựng đối tượng. Nó sẽ lấy builder và cấu trúc các steps để xây dựng ra 1 đối tượng cuối
 
 ## Code
-- Ví dụ sử dụng để phát triễn 1 api sử dụng 2 loại db là Mongodb và Postgres. Dựa vào type api sẽ tạo ra 1 connection và repository cụ thể
-- Đầu tiên xác định các thành phần
-  - Tạo ra 2 đối tượng là connection và repository của 2db
-    - Abstract factory:  => AbstractDatabaseFactory
-    - Nhóm đối tượng(Connection, repository) nằm trong 2 DB là Mongodb và Postgres
-      -  => Concrete factory: MongoDbFactory, PostgresFactory
-    - Abstract product: interface Connection, interface Repository
-    - Concrete product: Connection, Repository
+- Ví dụ xây dựng 1 car object. Car có cấu tạo như động cơ, bánh xe, chỗ ngồi, màu sắc, tốc độ. Cách tạo ra chúng không giống nhau
 ```
 // Abstract Factory
 abstract class AbstractDatabaseFactory {
