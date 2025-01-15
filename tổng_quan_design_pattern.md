@@ -15,4 +15,12 @@
     - Nó chỉ làm giảm quá trình lặp lại code và ẩn đi chi tiết khởi tạo   
 - [Abstract factory](https://github.com/lhoangcuong96/design-patterns/blob/master/4_Abstract_Factory/doc.md)
     - [Factory method](https://github.com/lhoangcuong96/design-patterns/blob/master/3_Factory_Method/doc.md) sẽ tập trung vào việc tạo ra đối tượng, Abstract Factory sẽ tập trung vào việc tạo ra các nhóm đối tượng có liên quan hay phụ thuộc
+- [Builder](https://github.com/lhoangcuong96/design-patterns/blob/master/5_Builder/doc.md)
+    - Cho phép quy định loại đối tượng(biến thể) nào được tạo ra
+    - Ví dụ Car có nhiều loại car và cấu trúc constructor khác nhau. Các loại yêu cầu khác nhau
+        - Sedan car thì ngoài những thông tin cần thiết của car còn phải có thông tin về option "hasSunroof"
+        - Sport car thì cần thông tin về "Max speed"
+    - Mỗi đối tượng(biến thể) cần các thông tin khác nhau và như vậy nếu sử dụng chung 1 constructor khởi tạo sẽ cực kì phức tạp và khó đọc và bảo trì, đồng thơi một số properties không cần thiết cũng phải truyền vào null, cực kì không cần thiết và thứ tự của nó cũng là 1 điều khá phức tạp
+        - Sử dụng Builder có thể giải quyết bài toán đó
+
     

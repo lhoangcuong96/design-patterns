@@ -2,8 +2,20 @@
 
 
 ## Bài toán
+- Cho phép quy định loại đối tượng(biến thể) nào được tạo ra
+  - Ví dụ Car có nhiều loại car và cấu trúc constructor khác nhau. Các loại yêu cầu khác nhau
+    - Sedan car thì ngoài những thông tin cần thiết của car còn phải có thông tin về option "hasSunroof"
+    - Sport car thì cần thông tin về "Max speed"
+  - Mỗi đối tượng cần các thông tin khác nhau và như vậy nếu sử dụng chung 1 constructor khởi tạo sẽ cực kì phức tạp và khó đọc và bảo trì, đồng thơi một số properties không cần thiết cũng phải truyền vào null, cực kì không cần thiết và thứ tự của nó cũng là 1 điều khá phức tạp
+    - Sử dụng Builder có thể giải quyết bài toán đó
 
-- Ví dụ Car có nhiều loại car và cấu trúc constructor khác nhau. Các loại yêu cầu khác nhau
+## Khi nào sử dụng builder
+- Khi đối tượng có cấu trúc phức tạp
+  - Đối tượng yêu cầu nhiều steps khác nhau để xây dựng như là thiết lập các properties khác nhau, khởi tạo dựa vào các objects khác, thực thi ràng buộc...
+- Tránh một constructor dài
+- Làm cho việc tạo đối tượng dễ đọc và bảo trì hơn
+- Cần khi build những biến thể khác nhau của đối tượng
+- Tách biệt việc khởi tạo đối tượng với những biểu diễn khác
 
 ## Thành phần
 - Builder bao gồm:
