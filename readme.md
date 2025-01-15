@@ -27,5 +27,5 @@
 - [Object pool](https://github.com/lhoangcuong96/design-patterns/blob/master/7_Object_pool/doc.md)
     - Object pool dùng để quản lý cách thức đối tượng được tạo ra và tái sử dụng, đặc biệt đối với các đối tượng tiêu tốn tài nguyên khi khởi tạo vd db connection. Thay vì phải khởi tạo lại 1 instance của đối tượng mỗi lần khi cần, Object pool sẽ duy trì và tái sử dụng nó
 
-
-    
+## Nhóm hành vi
+- [Chain of responsibility]()

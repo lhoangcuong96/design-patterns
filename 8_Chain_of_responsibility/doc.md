@@ -1,13 +1,11 @@
-# Object pool
+# Chain of responsibility
 
 
 ## Bài toán
-- Object pool dùng để quản lý cách thức đối tượng được tạo ra và tái sử dụng, đặc biệt đối với các đối tượng tiêu tốn tài nguyên khi khởi tạo vd db connection . Thay vì phải khởi tạo lại 1 instance của đối tượng mỗi lần khi cần, Object pool sẽ duy trì và tái sử dụng nó
+- Ví dụ một hệ thống hỗ trợ theo tickets. Khi user submit ticket nó sẽ được đánh giá từng bậc từ thấp đến cao(mắt xích) đầu tiên là nhân viên hỗ trợ người dùng nếu không xử lý được sẽ chuyển tiếp cho trưởng nhóm và nếu không được sẽ chuyển cho quản lý ... Mỗi mắt xích sẽ quyết định yêu cầu có được xử lý hay không hay sẽ tiếp tục được chuyển tiếp
 
-## Khi nào sử dụng Object pool
+## Khi nào sử dụng builder
 - Khi việc khởi tạo đối tượng tốn nhiều tài nguyên: Ví dụ Database Connection , Network Connection, threads, 1 đối tượng lớn
-- Những object thường xuyên được khởi tạo và phá huỷ: việc tạo và phá huỷ 1 object thường xuyên có thể dẫn đến việc hiệu xuất kém
-- Những object được tái sử dụng nhiều nơi
 
 ## Object pool pattern hoạt động như thế nào
 - Tạo ra pool : Object pool sẽ tạo ra 1 tập hợp các objects, nó sẽ được phân bố trước và sẵn sàng để sử dụng

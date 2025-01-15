@@ -4,7 +4,7 @@
 ## Bài toán
 - Prototype sử dụng để tạo ra 1 đối tượng từ 1 đối tượng có sẵn nhưng tránh được việc phải tạo lại từ đầu đặc biệt khi việc khởi tạo tốn nhiều tài nguyên và phức tạp
 
-## Khi nào sử dụng builder
+## Khi nào sử dụng prototype
 - Tránh việc cloning đối tượng tiêu tốn quá nhiều tài nguyên
 
 ## Khái niệm chỉnh
