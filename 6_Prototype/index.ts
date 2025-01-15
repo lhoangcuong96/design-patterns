@@ -1,70 +1,27 @@
-class DatabaseConnection {
-  id: number;
-  status: string;
-  constructor(id: number, status: string) {
-    this.id = id;
-    this.status = status;
+class Car {
+  brand: string;
+  model: string;
+  constructor(brand: string, model: string) {
+    this.brand = brand;
+    this.model = model;
   }
 
-  connect() {
-    console.log(`Connection ${this.id} established`);
-    this.status = "active";
+  drive() {
+    console.log(`Driving ${this.brand} ${this.model}`);
   }
 
-  disconnect() {
-    console.log(`Connection ${this.id} closed`);
-    this.status = "idle";
-  }
-}
+  clone(): Car {
+    // shallow copy
+    return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
 
-class DatabaseConnectionPool {
-  size: number;
-  pool: Array<DatabaseConnection> = [];
-  constructor(size: number) {
-    this.size = size;
-    for (let i = 0; i < size; i++) {
-      this.pool.push(new DatabaseConnection(i, "idle"));
-    }
-  }
-
-  borrowConnection(): DatabaseConnection | null {
-    const connection = this.pool.find((connect) => connect.status === "idle");
-    if (connection) {
-      connection.connect();
-      return connection;
-    }
-    console.log("No connection available");
-    return null;
-  }
-
-  returnConnection(connection: DatabaseConnection) {
-    connection.disconnect();
+    // deep copy
+    // return JSON.parse(JSON.stringify(this));
+    // return _.cloneDeep(this); // lodash
   }
 }
 
-// Mô phỏng 1 server sử dụng connection pool
-class WebServer {
-  connectionPool: DatabaseConnectionPool;
-  constructor(connectionPool: DatabaseConnectionPool) {
-    this.connectionPool = connectionPool;
-  }
+const car1 = new Car("Ford", "Fiesta");
+car1.drive();
 
-  handleRequest(id: number) {
-    console.log(`Handling request #${id}`);
-    const connection = this.connectionPool.borrowConnection();
-    if (connection) {
-      setTimeout(() => {
-        console.log(`Request #${id} finished`);
-        this.connectionPool.returnConnection(connection);
-      }, 200);
-    }
-  }
-}
-
-const pool = new DatabaseConnectionPool(3);
-
-const server = new WebServer(pool);
-
-for (let index = 0; index < 5; index++) {
-  server.handleRequest(index);
-}
+const car2 = car1.clone()
+car2.drive();
