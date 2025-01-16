@@ -1,70 +1,62 @@
-class DatabaseConnection {
-  id: number;
-  status: string;
-  constructor(id: number, status: string) {
-    this.id = id;
-    this.status = status;
+class Approver {
+  name: string;
+  nextApprover: Approver | null;
+
+  constructor(name: string) {
+    this.name = name;
+    this.nextApprover = null;
   }
 
-  connect() {
-    console.log(`Connection ${this.id} established`);
-    this.status = "active";
+  setNextApprover(approver: Approver) {
+    this.nextApprover= approver
   }
 
-  disconnect() {
-    console.log(`Connection ${this.id} closed`);
-    this.status = "idle";
-  }
-}
-
-class DatabaseConnectionPool {
-  size: number;
-  pool: Array<DatabaseConnection> = [];
-  constructor(size: number) {
-    this.size = size;
-    for (let i = 0; i < size; i++) {
-      this.pool.push(new DatabaseConnection(i, "idle"));
+  handleRequest(amount: number) {
+    if (!this.nextApprover) {
+      console.log("No one can handle this request");
+      return;
     }
+    this.nextApprover.handleRequest(amount);
   }
+}
 
-  borrowConnection(): DatabaseConnection | null {
-    const connection = this.pool.find((connect) => connect.status === "idle");
-    if (connection) {
-      connection.connect();
-      return connection;
+class Supervisor extends Approver{
+  handleRequest(amount: number): void {
+    if(amount<1000){
+      console.log(`This request is handled by Supervisor ${this.name}`)
+      return
     }
-    console.log("No connection available");
-    return null;
-  }
-
-  returnConnection(connection: DatabaseConnection) {
-    connection.disconnect();
+    super.handleRequest(amount);
   }
 }
-
-// Mô phỏng 1 server sử dụng connection pool
-class WebServer {
-  connectionPool: DatabaseConnectionPool;
-  constructor(connectionPool: DatabaseConnectionPool) {
-    this.connectionPool = connectionPool;
-  }
-
-  handleRequest(id: number) {
-    console.log(`Handling request #${id}`);
-    const connection = this.connectionPool.borrowConnection();
-    if (connection) {
-      setTimeout(() => {
-        console.log(`Request #${id} finished`);
-        this.connectionPool.returnConnection(connection);
-      }, 200);
+class Manager extends Approver{
+  handleRequest(amount: number): void {
+    if(amount<3000){
+      console.log(`This request is handled by Manager ${this.name}`)
+      return
     }
+    super.handleRequest(amount);
   }
 }
 
-const pool = new DatabaseConnectionPool(3);
-
-const server = new WebServer(pool);
-
-for (let index = 0; index < 5; index++) {
-  server.handleRequest(index);
+class Director extends Approver{
+  handleRequest(amount: number): void {
+    if(amount<5000){
+      console.log(`This request is handled by Director ${this.name}`)
+      return
+    }
+    super.handleRequest(amount);
+  }
 }
+
+const supervisor = new Supervisor("Cuong supervisor")
+const manager = new Manager("Cuong 2 manager")
+const director = new Director("Cuong 3 director")
+
+supervisor.setNextApprover(manager)
+manager.setNextApprover(director)
+
+supervisor.handleRequest(900)
+supervisor.handleRequest(2000)
+supervisor.handleRequest(4000)
+supervisor.handleRequest(6000)
