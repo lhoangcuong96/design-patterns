@@ -28,4 +28,6 @@
     - Object pool dùng để quản lý cách thức đối tượng được tạo ra và tái sử dụng, đặc biệt đối với các đối tượng tiêu tốn tài nguyên khi khởi tạo vd db connection. Thay vì phải khởi tạo lại 1 instance của đối tượng mỗi lần khi cần, Object pool sẽ duy trì và tái sử dụng nó
 
 ## Nhóm hành vi
-- [Chain of responsibility]()
+- [Chain of responsibility](https://github.com/lhoangcuong96/design-patterns/blob/master/8_Chain_of_responsibility/doc.md)
+    - Là một pattern nhóm hành vi. Cho phép request được truyền qua các mắt xích handler, mỗi một mắt xích sẽ xử lý hoặc truyền tiếp qua 1 mắt xích cao hơn trong chuỗi. 
+    - Ví dụ một hệ thống hỗ trợ theo tickets. Khi user submit ticket nó sẽ được đánh giá từng bậc từ thấp đến cao(mắt xích) đầu tiên là nhân viên hỗ trợ người dùng nếu không xử lý được sẽ chuyển tiếp cho trưởng nhóm và nếu không được sẽ chuyển cho quản lý ... Mỗi mắt xích sẽ quyết định yêu cầu có được xử lý hay không hay sẽ tiếp tục được chuyển tiếp
