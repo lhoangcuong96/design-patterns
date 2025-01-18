@@ -31,3 +31,5 @@
 - [Chain of responsibility](https://github.com/lhoangcuong96/design-patterns/blob/master/8_Chain_of_responsibility/doc.md)
     - Là một pattern nhóm hành vi. Cho phép request được truyền qua các mắt xích handler, mỗi một mắt xích sẽ xử lý hoặc truyền tiếp qua 1 mắt xích cao hơn trong chuỗi. 
     - Ví dụ một hệ thống hỗ trợ theo tickets. Khi user submit ticket nó sẽ được đánh giá từng bậc từ thấp đến cao(mắt xích) đầu tiên là nhân viên hỗ trợ người dùng nếu không xử lý được sẽ chuyển tiếp cho trưởng nhóm và nếu không được sẽ chuyển cho quản lý ... Mỗi mắt xích sẽ quyết định yêu cầu có được xử lý hay không hay sẽ tiếp tục được chuyển tiếp
+- [Command](https://github.com/lhoangcuong96/design-patterns/blob/master/9_Command/doc.md)
+    - Là một behavioral design pattern, nó sẽ đóng gói một request hoặc một action như 1 object. Cho phép tách biệt sender và receiver giúp hạn chế thay đổi code ở nơi gọi và chỉ cần thay đổi ở receiver. Pattern này cho phép hoàn tác các tác vụ bằng cách lưu lại các states hoặc các câu lệnh đảo ngược
