@@ -8,6 +8,12 @@ Là một behavioral design pattern, nó sẽ đóng gói một request hoặc m
   - Những operations như insert, update, delete được đóng gói lại thành command objects
   - Transaction sẽ chạy những command như là những đơn vị của công việc, và khi failure thì nó rollback lại theo từng command đó
 
+## Khi nào sử dụng
+- Khi cần tách biệt nơi gọi là nơi nhận xử lý
+- Khi cần thực hiện các tách vụ như undo, redo
+- Khi cần hỗ trợ sắp xếp và theo dõi các tác vụ
+- Khi cần thực thi các commands như 1 group
+
 ## Ưu điểm:
 - Tách riêng biệt nơi gọi và nơi nhận 
 - Hỗ trợ undo, redo
